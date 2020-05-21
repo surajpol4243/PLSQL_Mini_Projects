@@ -1,0 +1,46 @@
+create table guests(name varchar2(20),address varchar(40),phone number(10),roomno number(3));
+
+create table checklists(name varchar2(10),room number(3),cdate varchar2(20),stat varchar2(10));
+
+insert into guests values('yash','navsari',4455221133,101);
+
+create or replace package hotelmanage is
+procedure bookroom(name varchar2,address varchar,phone number,room number);
+procedure checkin(name varchar2,room number);
+procedure checkout(name varchar2,room number);
+end hotelmanage;
+
+
+create or replace package body hotelmanage is
+procedure bookroom(name varchar2,address varchar,phone number,room number) is
+begin
+insert into guests values(name,address,phone,room);
+end bookroom;
+procedure checkin(name varchar2,room number) is
+begin
+insert into checklists values(name,room,SYSDATE(),'checkin');
+dbms_output.put_line('Checked In');
+end checkin;
+procedure checkout(name varchar2,room number) is
+begin
+delete from guests where name=name and roomno=room;
+insert into checklists values(name,room,SYSDATE(),'checkout');
+end checkout;
+end hotelmanage;
+
+create or replace trigger httr
+after insert or delete or update on guests
+begin 
+if inserting then
+dbms_output.put_line('inserted');
+elsif deleting then
+dbms_output.put_line('Checked Out');
+else
+dbms_output.put_line('updating');
+end if;
+end;
+
+begin
+hotelmanage.checkin('yash',101);
+hotelmanage.checkout('yash',101);
+end;
