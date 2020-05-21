@@ -1,0 +1,51 @@
+create table studentable(id number(2),name varchar2(10),dept varchar2(4),year number(1));
+
+insert into studentable values(1,'yash','cse',2);
+insert into studentable values(2,'krish','cse',2);
+insert into studentable values(3,'mendo','cse',2);
+
+create or replace package studentpack is
+procedure add(id number,name varchar2,dept varchar2,year number);
+procedure delete(id number);
+procedure listall;
+end studentpack;
+
+create or replace package body studentpack is
+procedure add(id number,name varchar2,dept varchar2,year number) is
+begin
+    insert into studentable values(id,name,dept,year);
+end add;
+procedure delete(id number) is
+begin
+    delete from studentable where id=id;
+end delete;
+procedure listall is 
+cursor cur is select * from studentable;
+record studentable%rowtype;
+begin
+    open cur;
+    dbms_output.put_line('ID'||'  Name  '||'  Dept  '||'  Year  ');
+    loop 
+       fetch cur into record;
+       exit when cur%notfound;
+       dbms_output.put_line(record.id||'  '||record.name||'    '||record.dept||'    '||record.year);
+    end loop;
+    close cur;
+end listall;
+end;
+
+begin
+studentpack.add(4,'manan','cse',2);
+end;
+        
+create or replace trigger sttr
+after insert or delete or update on studentable
+begin 
+if inserting then
+dbms_output.put_line('inserted');
+elsif deleting then
+dbms_output.put_line('deleted');
+else
+dbms_output.put_line('updating');
+end if;
+end;
