@@ -1,3 +1,5 @@
+-- new project
+
 create table guests(name varchar2(20),address varchar(40),phone number(10),roomno number(3));
 
 create table checklists(name varchar2(10),room number(3),cdate varchar2(20),stat varchar2(10));
