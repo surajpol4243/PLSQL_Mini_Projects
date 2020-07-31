@@ -1,0 +1,36 @@
+- github: akashc777
+  name: Akash Hadagali
+  shortname: Akash
+  role: GitHub Campus Expert
+  university: Reva University
+  city: Bangalore
+  pin:
+    latitude: 13.116936
+    longitude: 77.634627
+  about: |
+    An engineering student with love for technology who is always ready to get
+    his hands dirty with anykind of tech.
+    You can [check out my LinkedIn profile](https://www.linkedin.com/in/akashhadagali/)
+    and also [checkout my Blog](https://www.akash.page)
+  contact: contact@akash.page
+  avatar: https://avatars2.githubusercontent.com/u/32003795
+  modules_completed: [expert, 1a, 2a, 3a, 4a, 5a, 6a]
+  skills: [Golang, JavaScript, NodeJS, Docker, linux, cloud computing, K8S, C/C++]
+
+- github: kelvinndmo
+  name: Kelvin Onkundi Ndemo
+  shortname: Novak
+  role: GitHub Campus Expert
+  university: Jomo Kenyatta University of Agriculture And Technology
+  city: Nairobi
+  pin:
+    latitude: -1.0870406
+    longitude: 37.0103763
+  about: |
+    A Mathematics and Computer Science Student passionate about technology especially 
+    and mobile technologies
+    You can [check out my LinkedIn profile](https://www.linkedin.com/in/kelvin-o/)
+  contact: ndemo.kelvin@students.jkuat.ac.ke
+  avatar: https://avatars3.githubusercontent.com/u/32582512
+  modules_completed: [expert, 1a, 2a, 3a, 4a, 5a, 6a]
+  skills: [Golang, JavaScript, NodeJS, Docker, linux, Python, TypeScript, React, Dart, Flutter]
